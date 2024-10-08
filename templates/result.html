@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+             background-image: url('/static/images/image2.jpg'); /* Update with the correct path */
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            color: white; /* Text color, change if needed */
+        }
+        .container {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for readability */
+        }
+        h2, p {
+            font-size: 1.5em; /* Increased font size for details */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Result</h1>
+        <!-- Display Prediction and Probability -->
+        <p>{{ prediction }}</p>
+        <p>{{ probability }}</p>
+
+        <!-- Display Detailed Description -->
+        <h2>About the Prediction</h2>
+        <p>{{ detailed_description }}</p>
+    </div>
+</body>
+</html>
+

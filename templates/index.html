@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection</title>
+    <style>
+        body {
+            background-image: url('/static/images/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-container {
+            margin-top: 20px; /* Added margin-top to push the gallery to the top */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align gallery items to the top */
+            flex-wrap: wrap; /* Allow wrapping if the content exceeds the width */
+        }
+
+        .gallery-tab {
+            margin: 10px; /* Adjusted margin for better spacing */
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .gallery-tab:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Skin Cancer Detection</h1>
+
+    <div class="gallery-container">
+        <a href="https://my.clevelandclinic.org/health/diseases/14391-melanoma" class="gallery-tab" target="_blank">Melanoma</a>
+        <a href="https://www.ncbi.nlm.nih.gov/books/NBK470451/" class="gallery-tab" target="_blank">Melanocytic Nevi</a>
+        <a href="https://www.mayoclinic.org/diseases-conditions/seborrheic-keratosis/symptoms-causes/syc-20353878" class="gallery-tab" target="_blank">Benign Keratosis-like Lesions</a>
+    </div>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="/predict" method="post" enctype="multipart/form-data" id="uploadForm">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            alert('Your file is uploaded. Please wait for the prediction.');
+        });
+    </script>
+</body>
+</html>
